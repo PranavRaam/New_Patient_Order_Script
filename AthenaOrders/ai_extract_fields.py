@@ -11,10 +11,7 @@ import requests
 from dotenv import load_dotenv
 
 try:
-    from azure.ai.documentintelligence import (  # type: ignore
-        DocumentIntelligenceClient,
-        AnalyzeDocumentOptions
-    )
+    from azure.ai.documentintelligence import DocumentIntelligenceClient  # type: ignore
     from azure.core.credentials import AzureKeyCredential  # type: ignore
 except ImportError:
     print("\n[ERROR] azure-ai-documentintelligence package not found.\nInstall it with:  pip install azure-ai-documentintelligence==1.0.0b2\n")
@@ -73,11 +70,11 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     credential = AzureKeyCredential(AZURE_KEY)
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
+    # For SDK versions >=1.0.0 the options object is optional. We pass only the required args
     poller = client.begin_analyze_document(
         model_id=AZURE_MODEL,
         analyze_request=pdf_bytes,
-        content_type="application/pdf",
-        options=AnalyzeDocumentOptions()
+        content_type="application/pdf"
     )
     result = poller.result()
 
