@@ -86,7 +86,7 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     print(f"[Azure] Analyzing (bytes={len(pdf_bytes)})")
     poller = client.begin_analyze_document(
         AZURE_MODEL,              # model_id positional
-        document=pdf_bytes,
+        body=pdf_bytes,           # changed from document= to body=
         content_type="application/pdf"
     )
     result = poller.result()
