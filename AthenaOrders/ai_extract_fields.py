@@ -83,127 +83,91 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     credential = AzureKeyCredential(AZURE_KEY)
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
-    print(f"[Azure] Analyzing (bytes={len(pdf_bytes)}) with custom model: {AZURE_MODEL}")
+    print(f"[Azure] Analyzing (bytes={len(pdf_bytes)})")
+    
+    # Try with prebuilt-layout model (most common for general document analysis)
+    model_to_use = AZURE_MODEL if AZURE_MODEL != "prebuilt-document" else "prebuilt-layout"
     
     try:
         poller = client.begin_analyze_document(
-            AZURE_MODEL,              # Your custom model ID
-            body=pdf_bytes,
+            model_to_use,             # model_id positional
+            body=pdf_bytes,           # changed from document= to body=
             content_type="application/pdf"
         )
         result = poller.result()
-        print("[Azure] Custom model analysis completed")
+        print("[Azure] analysis completed")
     except Exception as e:
-        print(f"[Azure] Error with custom model: {e}")
-        # If custom model fails, don't fallback - fix the model instead
-        raise e
+        if "ModelNotFound" in str(e):
+            print(f"[Azure] Model {model_to_use} not found, trying prebuilt-read")
+            # Fallback to prebuilt-read model
+            poller = client.begin_analyze_document(
+                "prebuilt-read",
+                body=pdf_bytes,
+                content_type="application/pdf"
+            )
+            result = poller.result()
+            print("[Azure] analysis completed with prebuilt-read")
+        else:
+            raise e
 
     extracted: Dict[str, str] = {}
 
-    # For custom models, extract from fields (trained fields)
-    if hasattr(result, "documents") and result.documents:
-        document = result.documents[0]  # Get first document
-        
-        if hasattr(document, "fields") and document.fields:
-            print(f"[Azure] Found {len(document.fields)} trained fields")
-            for field_name, field_value in document.fields.items():
-                if field_value and field_value.content:
-                    extracted[field_name.lower()] = field_value.content.strip()
-                    print(f"[Azure] Extracted {field_name}: {field_value.content.strip()}")
-        else:
-            print("[Azure] No fields found in custom model response")
-    
-    # Fallback: Extract from key-value pairs if fields are empty
-    if not extracted and hasattr(result, "key_value_pairs") and result.key_value_pairs:
-        print("[Azure] Fallback to key-value pairs")
+    # Collect key-value pairs (supports prebuilt-layout or custom model)
+    if hasattr(result, "key_value_pairs") and result.key_value_pairs:
         for kvp in result.key_value_pairs:
             if kvp.key and kvp.value:
                 key = kvp.key.content.strip().lower()
                 value = kvp.value.content.strip()
                 extracted[key] = value
     
-    # Additional fallback: Pattern matching from content
-    if len(extracted) < 3 and hasattr(result, "content") and result.content:
-        print("[Azure] Fallback to pattern matching")
+    # Also extract from tables if available
+    if hasattr(result, "tables") and result.tables:
+        for table in result.tables:
+            for cell in table.cells:
+                if cell.content:
+                    # Use row and column as a simple key
+                    key = f"table_{table.row_count}x{table.column_count}_r{cell.row_index}_c{cell.column_index}"
+                    extracted[key] = cell.content.strip()
+    
+    # Extract general text content if key-value pairs are sparse
+    if hasattr(result, "content") and result.content and len(extracted) < 5:
+        # Simple text extraction fallback
         content = result.content.lower()
         
-        # Enhanced patterns for medical documents
+        # Look for common medical document patterns
+        import re
         patterns = {
-            "mrn": [
-                r"(?:mrn|medical record|patient id|record number|chart #)[\s:]*([^\s\n,]+)",
-                r"(?:mr #|mr#|patient #)[\s:]*([^\s\n,]+)"
-            ],
-            "dob": [
-                r"(?:dob|date of birth|birth date|born)[\s:]*([0-9/\-]{8,10})",
-                r"(?:d\.o\.b\.?)[\s:]*([0-9/\-]{8,10})"
-            ],
-            "patient_name": [
-                r"(?:patient name|patient|name)[\s:]*([a-zA-Z\s,]+?)(?:\n|$|dob|mrn)",
-                r"(?:client name)[\s:]*([a-zA-Z\s,]+?)(?:\n|$)"
-            ],
-            "start_of_care": [
-                r"(?:start of care|soc|care start)[\s:]*([0-9/\-]{8,10})",
-                r"(?:effective date|start date)[\s:]*([0-9/\-]{8,10})"
-            ],
-            "episode_start": [
-                r"(?:episode start|cert period from|from date)[\s:]*([0-9/\-]{8,10})",
-                r"(?:certification from)[\s:]*([0-9/\-]{8,10})"
-            ],
-            "episode_end": [
-                r"(?:episode end|cert period to|to date)[\s:]*([0-9/\-]{8,10})",
-                r"(?:certification to)[\s:]*([0-9/\-]{8,10})"
-            ]
+            "mrn": r"(?:mrn|medical record|patient id|record number)[\s:]*([^\s\n]+)",
+            "dob": r"(?:dob|date of birth|birth date)[\s:]*([0-9/\-]{8,10})",
+            "start_of_care": r"(?:start of care|soc|care start)[\s:]*([0-9/\-]{8,10})",
+            "episode_start": r"(?:episode start|cert period from)[\s:]*([0-9/\-]{8,10})",
+            "episode_end": r"(?:episode end|cert period to)[\s:]*([0-9/\-]{8,10})"
         }
         
-        import re
-        for field, pattern_list in patterns.items():
-            if field not in extracted:
-                for pattern in pattern_list:
-                    match = re.search(pattern, content)
-                    if match:
-                        extracted[field] = match.group(1).strip()
-                        print(f"[Azure] Pattern matched {field}: {extracted[field]}")
-                        break
+        for field, pattern in patterns.items():
+            match = re.search(pattern, content)
+            if match:
+                extracted[field] = match.group(1).strip()
 
-    print(f"[Azure] Total extracted fields: {len(extracted)}")
     return extracted
 
 
-def map_fields(extracted: Dict[str, str]) -> Dict[str, str]:
-    """Map extracted fields to expected output columns"""
-    mapped = {}
-    
-    # Direct mapping for custom model fields
-    field_mapping = {
-        "mrn": "mrn",
-        "dob": "dob", 
-        "patient_name": "patient_name",
-        "start_of_care": "start_of_care",
-        "episode_start": "episode_start",
-        "episode_end": "episode_end"
+def map_fields(kv: Dict[str, str]) -> Dict[str, str]:
+    """Map arbitrary keys from Azure output to the few we care about."""
+    def first(*candidates):
+        for cand in candidates:
+            if cand in kv:
+                return kv[cand]
+        return ""
+
+    return {
+        "doc_id": kv.get("documentid", ""),
+        "mrn": first("mrn", "medical record number", "patient id"),
+        "dob": first("dob", "date of birth", "birth date"),
+        "start_of_care": first("start of care", "soc"),
+        "episode_start": first("episode start", "cert period from", "episode start date"),
+        "episode_end": first("episode end", "cert period to", "episode end date"),
     }
-    
-    for extracted_key, output_key in field_mapping.items():
-        if extracted_key in extracted:
-            mapped[output_key] = extracted[extracted_key]
-    
-    # Handle common variations in extracted field names
-    variations = {
-        "mrn": ["medical_record_number", "patient_id", "record_number", "chart_number"],
-        "dob": ["date_of_birth", "birth_date", "birthdate"],
-        "start_of_care": ["soc", "care_start_date", "effective_date"],
-        "episode_start": ["episode_start_date", "cert_from", "certification_from"],
-        "episode_end": ["episode_end_date", "cert_to", "certification_to"]
-    }
-    
-    for target_field, variations_list in variations.items():
-        if target_field not in mapped:
-            for variation in variations_list:
-                if variation in extracted:
-                    mapped[target_field] = extracted[variation]
-                    break
-    
-    return mapped
 
 # ---------------------------------------------------------------------------
 # Main procedure
@@ -217,7 +181,7 @@ def main():
 
         reader = csv.DictReader(src)
         fieldnames = reader.fieldnames + [
-            "mrn", "dob", "patient_name", "start_of_care", "episode_start", "episode_end"
+            "mrn", "dob", "start_of_care", "episode_start", "episode_end"
         ]
         writer = csv.DictWriter(dest, fieldnames=fieldnames)
         writer.writeheader()
@@ -231,9 +195,9 @@ def main():
             try:
                 print(f"Processing {doc_id} …", end=" ")
                 pdf_bytes = fetch_pdf_bytes(doc_id, token)
-                extracted_fields = analyze_with_azure(pdf_bytes)
-                mapped_fields = map_fields(extracted_fields)
-                for k, v in mapped_fields.items():
+                kv_pairs = analyze_with_azure(pdf_bytes)
+                mapped = map_fields(kv_pairs)
+                for k, v in mapped.items():
                     if v:
                         row[k] = v
                 writer.writerow(row)
