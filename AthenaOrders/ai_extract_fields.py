@@ -84,28 +84,70 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
     print(f"[Azure] Analyzing (bytes={len(pdf_bytes)})")
-    poller = client.begin_analyze_document(
-        AZURE_MODEL,              # model_id positional
-        body=pdf_bytes,           # changed from document= to body=
-        content_type="application/pdf"
-    )
-    result = poller.result()
-    print("[Azure] analysis completed")
+    
+    # Try with prebuilt-layout model (most common for general document analysis)
+    model_to_use = AZURE_MODEL if AZURE_MODEL != "prebuilt-document" else "prebuilt-layout"
+    
+    try:
+        poller = client.begin_analyze_document(
+            model_to_use,             # model_id positional
+            body=pdf_bytes,           # changed from document= to body=
+            content_type="application/pdf"
+        )
+        result = poller.result()
+        print("[Azure] analysis completed")
+    except Exception as e:
+        if "ModelNotFound" in str(e):
+            print(f"[Azure] Model {model_to_use} not found, trying prebuilt-read")
+            # Fallback to prebuilt-read model
+            poller = client.begin_analyze_document(
+                "prebuilt-read",
+                body=pdf_bytes,
+                content_type="application/pdf"
+            )
+            result = poller.result()
+            print("[Azure] analysis completed with prebuilt-read")
+        else:
+            raise e
 
     extracted: Dict[str, str] = {}
 
-    # Collect key-value pairs (supports prebuilt-document or custom model)
-    if hasattr(result, "key_value_pairs"):
+    # Collect key-value pairs (supports prebuilt-layout or custom model)
+    if hasattr(result, "key_value_pairs") and result.key_value_pairs:
         for kvp in result.key_value_pairs:
             if kvp.key and kvp.value:
                 key = kvp.key.content.strip().lower()
                 value = kvp.value.content.strip()
                 extracted[key] = value
-    else:
-        # Fallback – extract from fields attribute
-        for name, field in getattr(result, "fields", {}).items():
-            if field and field.content:
-                extracted[name.lower()] = field.content.strip()
+    
+    # Also extract from tables if available
+    if hasattr(result, "tables") and result.tables:
+        for table in result.tables:
+            for cell in table.cells:
+                if cell.content:
+                    # Use row and column as a simple key
+                    key = f"table_{table.row_count}x{table.column_count}_r{cell.row_index}_c{cell.column_index}"
+                    extracted[key] = cell.content.strip()
+    
+    # Extract general text content if key-value pairs are sparse
+    if hasattr(result, "content") and result.content and len(extracted) < 5:
+        # Simple text extraction fallback
+        content = result.content.lower()
+        
+        # Look for common medical document patterns
+        import re
+        patterns = {
+            "mrn": r"(?:mrn|medical record|patient id|record number)[\s:]*([^\s\n]+)",
+            "dob": r"(?:dob|date of birth|birth date)[\s:]*([0-9/\-]{8,10})",
+            "start_of_care": r"(?:start of care|soc|care start)[\s:]*([0-9/\-]{8,10})",
+            "episode_start": r"(?:episode start|cert period from)[\s:]*([0-9/\-]{8,10})",
+            "episode_end": r"(?:episode end|cert period to)[\s:]*([0-9/\-]{8,10})"
+        }
+        
+        for field, pattern in patterns.items():
+            match = re.search(pattern, content)
+            if match:
+                extracted[field] = match.group(1).strip()
 
     return extracted
 
