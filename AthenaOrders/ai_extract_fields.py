@@ -54,6 +54,22 @@ def fetch_pdf_bytes(doc_id: str, token: str) -> bytes:
     r.raise_for_status()
     payload = r.json().get("value", {})
     buffer_b64 = payload.get("documentBuffer")
+
+    # Some instances require a JSON body with caretakerId to retrieve the buffer
+    if not buffer_b64:
+        request_body = {
+            "onlyUnfiled": True,
+            "careProviderId": {"id": 0, "externalId": ""},
+            "dateFrom": None,
+            "dateTo": None,
+            "page": 1,
+            "recordsPerPage": 10
+        }
+        r2 = requests.get(url, headers=headers, json=request_body, timeout=60)
+        r2.raise_for_status()
+        payload = r2.json().get("value", {})
+        buffer_b64 = payload.get("documentBuffer")
+
     if not buffer_b64:
         raise RuntimeError("documentBuffer missing in response")
     return base64.b64decode(buffer_b64)
@@ -63,10 +79,10 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     credential = AzureKeyCredential(AZURE_KEY)
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
-    # For SDK versions >=1.0.0 the options object is optional. We pass only the required args
+    # SDK >=1.0.0 expects the raw document bytes via the 'document' parameter
     poller = client.begin_analyze_document(
         model_id=AZURE_MODEL,
-        analyze_request=pdf_bytes,
+        document=pdf_bytes,
         content_type="application/pdf"
     )
     result = poller.result()
