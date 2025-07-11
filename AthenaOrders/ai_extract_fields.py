@@ -4,6 +4,7 @@ import os
 import sys
 import base64
 import time
+import re
 from datetime import datetime
 from typing import Dict, Optional
 
@@ -14,7 +15,7 @@ try:
     from azure.ai.documentintelligence import DocumentIntelligenceClient  # type: ignore
     from azure.core.credentials import AzureKeyCredential  # type: ignore
 except ImportError:
-    print("\n[ERROR] azure-ai-documentintelligence package not found.\nInstall it with:  pip install azure-ai-documentintelligence==1.0.0b2\n")
+    print("\n[ERROR] azure-ai-documentintelligence package not found.\nInstall it with:  pip install azure-ai-documentintelligence==1.0.2\n")
     sys.exit(1)
 
 # ---------------------------------------------------------------------------
@@ -27,13 +28,13 @@ DA_GETFILE_URL = os.getenv("DA_GETFILE_URL", "https://api.doctoralliance.com/doc
 
 AZURE_ENDPOINT = os.getenv("AZURE_FORM_ENDPOINT", "")  # e.g. https://<resource>.cognitiveservices.azure.com/
 AZURE_KEY      = os.getenv("AZURE_FORM_KEY", "")
-AZURE_MODEL    = os.getenv("AZURE_FORM_MODEL", "prebuilt-document")  # or custom model id
+AZURE_MODEL    = os.getenv("AZURE_FORM_MODEL", "prebuilt-layout")  # Use prebuilt-layout for diverse formats
 
 INPUT_CSV      = sys.argv[1] if len(sys.argv) > 1 else "Inbox/Inbox_Extracted_Data.csv"
 TIMESTAMP      = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_CSV     = f"csv_outputs/Extracted_{TIMESTAMP}.csv"
 
-# Create the output directory if it doesn’t exist
+# Create the output directory if it doesn't exist
 os.makedirs(os.path.dirname(OUTPUT_CSV), exist_ok=True)
 
 # ---------------------------------------------------------------------------
@@ -79,95 +80,185 @@ def fetch_pdf_bytes(doc_id: str, token: str) -> bytes:
     return pdf_bytes
 
 
-def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
+def analyze_with_azure_robust(pdf_bytes: bytes) -> Dict[str, str]:
+    """
+    Multi-strategy extraction for diverse physician group formats
+    """
     credential = AzureKeyCredential(AZURE_KEY)
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
-    print(f"[Azure] Analyzing (bytes={len(pdf_bytes)})")
+    print(f"[Azure] Multi-strategy analysis (bytes={len(pdf_bytes)})")
     
-    # Try with prebuilt-layout model (most common for general document analysis)
-    model_to_use = AZURE_MODEL if AZURE_MODEL != "prebuilt-document" else "prebuilt-layout"
-    
+    # Strategy 1: Use prebuilt-layout for general structure
     try:
         poller = client.begin_analyze_document(
-            model_to_use,             # model_id positional
-            body=pdf_bytes,           # changed from document= to body=
+            "prebuilt-layout",
+            body=pdf_bytes,
             content_type="application/pdf"
         )
         result = poller.result()
-        print("[Azure] analysis completed")
+        print("[Azure] prebuilt-layout analysis completed")
     except Exception as e:
-        if "ModelNotFound" in str(e):
-            print(f"[Azure] Model {model_to_use} not found, trying prebuilt-read")
-            # Fallback to prebuilt-read model
-            poller = client.begin_analyze_document(
-                "prebuilt-read",
-                body=pdf_bytes,
-                content_type="application/pdf"
-            )
-            result = poller.result()
-            print("[Azure] analysis completed with prebuilt-read")
-        else:
-            raise e
+        print(f"[Azure] prebuilt-layout failed: {e}")
+        # Fallback to prebuilt-read
+        poller = client.begin_analyze_document(
+            "prebuilt-read",
+            body=pdf_bytes,
+            content_type="application/pdf"
+        )
+        result = poller.result()
+        print("[Azure] prebuilt-read analysis completed")
 
-    extracted: Dict[str, str] = {}
-
-    # Collect key-value pairs (supports prebuilt-layout or custom model)
+    extracted = {}
+    
+    # Strategy 1: Extract from key-value pairs (if available)
     if hasattr(result, "key_value_pairs") and result.key_value_pairs:
+        print("[Azure] Extracting from key-value pairs")
         for kvp in result.key_value_pairs:
             if kvp.key and kvp.value:
                 key = kvp.key.content.strip().lower()
                 value = kvp.value.content.strip()
                 extracted[key] = value
     
-    # Also extract from tables if available
+    # Strategy 2: Extract from tables (common in medical forms)
     if hasattr(result, "tables") and result.tables:
-        for table in result.tables:
+        print("[Azure] Extracting from tables")
+        for table_idx, table in enumerate(result.tables):
             for cell in table.cells:
-                if cell.content:
-                    # Use row and column as a simple key
-                    key = f"table_{table.row_count}x{table.column_count}_r{cell.row_index}_c{cell.column_index}"
-                    extracted[key] = cell.content.strip()
+                if cell.content and len(cell.content.strip()) > 1:
+                    # Create meaningful keys from table context
+                    cell_key = f"table_{table_idx}_r{cell.row_index}_c{cell.column_index}"
+                    extracted[cell_key] = cell.content.strip()
     
-    # Extract general text content if key-value pairs are sparse
-    if hasattr(result, "content") and result.content and len(extracted) < 5:
-        # Simple text extraction fallback
+    # Strategy 3: Extract from paragraphs (for unstructured text)
+    if hasattr(result, "paragraphs") and result.paragraphs:
+        print("[Azure] Extracting from paragraphs")
+        for para_idx, paragraph in enumerate(result.paragraphs):
+            if paragraph.content:
+                para_key = f"paragraph_{para_idx}"
+                extracted[para_key] = paragraph.content.strip()
+    
+    # Strategy 4: Regex patterns on full content (for any format)
+    if hasattr(result, "content") and result.content:
+        print("[Azure] Applying regex patterns")
         content = result.content.lower()
         
-        # Look for common medical document patterns
-        import re
+        # Comprehensive patterns for USA physician groups
         patterns = {
-            "mrn": r"(?:mrn|medical record|patient id|record number)[\s:]*([^\s\n]+)",
-            "dob": r"(?:dob|date of birth|birth date)[\s:]*([0-9/\-]{8,10})",
-            "start_of_care": r"(?:start of care|soc|care start)[\s:]*([0-9/\-]{8,10})",
-            "episode_start": r"(?:episode start|cert period from)[\s:]*([0-9/\-]{8,10})",
-            "episode_end": r"(?:episode end|cert period to)[\s:]*([0-9/\-]{8,10})"
+            "mrn": [
+                r"(?:mrn|medical record|patient id|record number|chart #|patient #)[\s:]*([a-zA-Z0-9\-]{3,20})",
+                r"(?:id|identifier|record|chart)[\s:]*([a-zA-Z0-9\-]{5,15})",
+                r"(?:pt|patient)[\s:]*(?:id|#)[\s:]*([a-zA-Z0-9\-]{3,15})"
+            ],
+            "dob": [
+                r"(?:dob|date of birth|birth date|born)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:d\.o\.b\.?)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:birthday|birth)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})"
+            ],
+            "start_of_care": [
+                r"(?:start of care|soc|care start|episode start)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:episode begins?|period from)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:certification period)[\s:]*(?:from)?[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})"
+            ],
+            "episode_start": [
+                r"(?:episode start|cert period from|certification from)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:period starts?|from date)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:effective date|start date)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})"
+            ],
+            "episode_end": [
+                r"(?:episode end|cert period to|certification to)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:period ends?|to date|through)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+                r"(?:expiration date|end date)[\s:]*([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})"
+            ],
+            "patient_name": [
+                r"(?:patient name|patient|name|client name)[\s:]*([a-zA-Z\s,\.]{5,50})",
+                r"(?:pt name|client)[\s:]*([a-zA-Z\s,\.]{5,50})"
+            ]
         }
         
-        for field, pattern in patterns.items():
-            match = re.search(pattern, content)
-            if match:
-                extracted[field] = match.group(1).strip()
-
+        # Apply multiple patterns per field for better coverage
+        for field, pattern_list in patterns.items():
+            if field not in extracted or not extracted[field]:
+                for pattern in pattern_list:
+                    match = re.search(pattern, content, re.IGNORECASE)
+                    if match:
+                        value = match.group(1).strip()
+                        if len(value) > 2:  # Minimum viable data
+                            extracted[field] = value
+                            break
+    
+    # Strategy 5: Look for patterns in any text content
+    all_text = ""
+    if hasattr(result, "content"):
+        all_text = result.content
+    elif extracted:
+        all_text = " ".join(str(v) for v in extracted.values())
+    
+    if all_text and len(extracted) < 3:
+        print("[Azure] Emergency pattern matching on all text")
+        # Emergency broad patterns
+        emergency_patterns = {
+            "mrn": r"(?:^|\s)([A-Z0-9]{6,15})(?:\s|$)",
+            "dob": r"([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4})",
+            "dates": r"([0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{4})"
+        }
+        
+        for field, pattern in emergency_patterns.items():
+            matches = re.findall(pattern, all_text, re.IGNORECASE)
+            if matches:
+                if field == "dates":
+                    # Assign dates to missing fields
+                    date_fields = ["start_of_care", "episode_start", "episode_end"]
+                    for i, date_field in enumerate(date_fields):
+                        if date_field not in extracted and i < len(matches):
+                            extracted[date_field] = matches[i]
+                else:
+                    if field not in extracted:
+                        extracted[field] = matches[0]
+    
+    print(f"[Azure] Extracted {len(extracted)} fields using multi-strategy approach")
     return extracted
 
 
-def map_fields(kv: Dict[str, str]) -> Dict[str, str]:
-    """Map arbitrary keys from Azure output to the few we care about."""
-    def first(*candidates):
-        for cand in candidates:
-            if cand in kv:
-                return kv[cand]
-        return ""
-
-    return {
-        "doc_id": kv.get("documentid", ""),
-        "mrn": first("mrn", "medical record number", "patient id"),
-        "dob": first("dob", "date of birth", "birth date"),
-        "start_of_care": first("start of care", "soc"),
-        "episode_start": first("episode start", "cert period from", "episode start date"),
-        "episode_end": first("episode end", "cert period to", "episode end date"),
+def map_fields(extracted_data: Dict[str, str]) -> Dict[str, str]:
+    """Map extracted data to our target fields"""
+    mapped = {
+        "mrn": "",
+        "dob": "",
+        "start_of_care": "",
+        "episode_start": "",
+        "episode_end": ""
     }
+    
+    # Direct mapping
+    for target_field in mapped.keys():
+        if target_field in extracted_data:
+            mapped[target_field] = extracted_data[target_field]
+    
+    # Fuzzy mapping for variations
+    for key, value in extracted_data.items():
+        key_lower = key.lower()
+        
+        # MRN variations
+        if not mapped["mrn"] and any(term in key_lower for term in ["mrn", "medical", "record", "patient", "id", "chart"]):
+            if re.match(r"^[A-Z0-9\-]{3,20}$", value.strip()):
+                mapped["mrn"] = value.strip()
+        
+        # DOB variations  
+        if not mapped["dob"] and any(term in key_lower for term in ["dob", "birth", "born"]):
+            if re.match(r"[0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4}", value.strip()):
+                mapped["dob"] = value.strip()
+        
+        # Date field variations
+        if re.match(r"[0-9]{1,2}[\/\-][0-9]{1,2}[\/\-][0-9]{2,4}", value.strip()):
+            if not mapped["start_of_care"] and any(term in key_lower for term in ["start", "care", "soc"]):
+                mapped["start_of_care"] = value.strip()
+            elif not mapped["episode_start"] and any(term in key_lower for term in ["episode", "from", "begin"]):
+                mapped["episode_start"] = value.strip()
+            elif not mapped["episode_end"] and any(term in key_lower for term in ["end", "to", "through", "expir"]):
+                mapped["episode_end"] = value.strip()
+    
+    return mapped
 
 # ---------------------------------------------------------------------------
 # Main procedure
@@ -195,13 +286,17 @@ def main():
             try:
                 print(f"Processing {doc_id} …", end=" ")
                 pdf_bytes = fetch_pdf_bytes(doc_id, token)
-                kv_pairs = analyze_with_azure(pdf_bytes)
-                mapped = map_fields(kv_pairs)
+                extracted_data = analyze_with_azure_robust(pdf_bytes)
+                mapped = map_fields(extracted_data)
+                
+                # Add extracted fields to row
                 for k, v in mapped.items():
                     if v:
                         row[k] = v
+                
                 writer.writerow(row)
                 print("✔️")
+                
             except Exception as e:
                 print(f"Failed: {e}")
                 writer.writerow(row)
@@ -209,7 +304,6 @@ def main():
             time.sleep(0.2)  # rudimentary rate-limit
 
     print(f"\nDone. Extracted data written to {OUTPUT_CSV}")
-
 
 if __name__ == "__main__":
     main() 
