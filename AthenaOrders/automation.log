@@ -1,0 +1,81 @@
+2025-07-11 07:08:01,662 - ERROR - [SendKeys Failed] class name = select2-search__field -> Message: 
+Stacktrace:
+#0 0x5b3c24d6e23a <unknown>
+#1 0x5b3c24818ab0 <unknown>
+#2 0x5b3c2486a6f0 <unknown>
+#3 0x5b3c2486a8e1 <unknown>
+#4 0x5b3c248b8b94 <unknown>
+#5 0x5b3c248901cd <unknown>
+#6 0x5b3c248b5fee <unknown>
+#7 0x5b3c2488ff73 <unknown>
+#8 0x5b3c2485caeb <unknown>
+#9 0x5b3c2485d751 <unknown>
+#10 0x5b3c24d32b4b <unknown>
+#11 0x5b3c24d36929 <unknown>
+#12 0x5b3c24d19929 <unknown>
+#13 0x5b3c24d374e8 <unknown>
+#14 0x5b3c24cfe0df <unknown>
+#15 0x5b3c24d5b8e8 <unknown>
+#16 0x5b3c24d5bac6 <unknown>
+#17 0x5b3c24d6d556 <unknown>
+#18 0x7685e8e777eb <unknown>
+#19 0x7685e8efb18c <unknown>
+
+2025-07-11 07:08:01,663 - ERROR - [ERROR] TimeoutException: Message: 
+Stacktrace:
+#0 0x5b3c24d6e23a <unknown>
+#1 0x5b3c24818ab0 <unknown>
+#2 0x5b3c2486a6f0 <unknown>
+#3 0x5b3c2486a8e1 <unknown>
+#4 0x5b3c248b8b94 <unknown>
+#5 0x5b3c248901cd <unknown>
+#6 0x5b3c248b5fee <unknown>
+#7 0x5b3c2488ff73 <unknown>
+#8 0x5b3c2485caeb <unknown>
+#9 0x5b3c2485d751 <unknown>
+#10 0x5b3c24d32b4b <unknown>
+#11 0x5b3c24d36929 <unknown>
+#12 0x5b3c24d19929 <unknown>
+#13 0x5b3c24d374e8 <unknown>
+#14 0x5b3c24cfe0df <unknown>
+#15 0x5b3c24d5b8e8 <unknown>
+#16 0x5b3c24d5bac6 <unknown>
+#17 0x5b3c24d6d556 <unknown>
+#18 0x7685e8e777eb <unknown>
+#19 0x7685e8efb18c <unknown>
+
+Traceback (most recent call last):
+  File "/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Final_signed_bot.py", line 73, in download_entire_signed_table
+    wait_and_send_keys(driver, By.CLASS_NAME, "select2-search__field", "Users")
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Final_signed_bot.py", line 38, in wait_and_send_keys
+    element = WebDriverWait(driver, timeout).until(
+        EC.presence_of_element_located((by, value))
+    )
+  File "/home/lone/miniconda3/envs/viv/lib/python3.13/site-packages/selenium/webdriver/support/wait.py", line 146, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x5b3c24d6e23a <unknown>
+#1 0x5b3c24818ab0 <unknown>
+#2 0x5b3c2486a6f0 <unknown>
+#3 0x5b3c2486a8e1 <unknown>
+#4 0x5b3c248b8b94 <unknown>
+#5 0x5b3c248901cd <unknown>
+#6 0x5b3c248b5fee <unknown>
+#7 0x5b3c2488ff73 <unknown>
+#8 0x5b3c2485caeb <unknown>
+#9 0x5b3c2485d751 <unknown>
+#10 0x5b3c24d32b4b <unknown>
+#11 0x5b3c24d36929 <unknown>
+#12 0x5b3c24d19929 <unknown>
+#13 0x5b3c24d374e8 <unknown>
+#14 0x5b3c24cfe0df <unknown>
+#15 0x5b3c24d5b8e8 <unknown>
+#16 0x5b3c24d5bac6 <unknown>
+#17 0x5b3c24d6d556 <unknown>
+#18 0x7685e8e777eb <unknown>
+#19 0x7685e8efb18c <unknown>
+
+
+2025-07-11 07:08:01,758 - INFO - WebDriver closed.

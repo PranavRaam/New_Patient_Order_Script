@@ -1,0 +1,18 @@
+{
+  "configuration": {
+    "DA_USERNAME": "rpabot",
+    "DA_PASSWORD": "Dallas@1234",
+    "DA_API_TOKEN_USERNAME": null,
+    "DA_API_TOKEN_PASSWORD": null,
+    "DA_API_TOKEN_CLINICIAN_ID": null,
+    "DA_API_TOKEN_CARETAKER_ID": null,
+    "DA_API_TOKEN_URL": "https://backoffice.doctoralliance.com/api/token",
+    "DA_API_BASE_URL": "https://backoffice.doctoralliance.com/api",
+    "DA_WEB_URL": "https://backoffice.doctoralliance.com/Dashboard",
+    "HELPER_ID": "pcookph720",
+    "DOWNLOAD_PATH": "/home/lone/Downloads/",
+    "REPORTS_PATH": "./reports/",
+    "LOGS_PATH": "./logs/",
+    "CHROME_DRIVER_PATH": ""
+  }
+} 

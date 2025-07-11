@@ -1,0 +1,20 @@
+{
+    "configuration": 
+    {
+        "PatientListPath": "/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Reports/Athena/Patients",
+        "OrderTemplatePath": "/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Template/AgencyTemplate_2025-07-07.xlsx",
+        "EfaxTemplatePath": "",
+        "OrderFolderPath": "/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Reports/Athena/Orders",
+        "BasePath":"/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/Reports/Athena",
+        "MailTo": "",
+        "MainFrom": "",
+        "MailCC": "",
+        "ArchivalDays": "5",
+        "APIBaseURL":"https://da-web-app.azurewebsites.net/",
+        "APIKey":"9A823946C424797374D357C436CEC",
+        "RPA":"Athena",
+        "DownloadPath":"/home/lone/Downloads/",
+        "LogPath":"/home/lone/Projects/Vivnovation/Live_Project_Intern/new_patient_order_script_final/AthenaOrders/BotLogs/Athena/"
+
+    }
+}
