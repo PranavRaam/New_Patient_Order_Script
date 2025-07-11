@@ -33,6 +33,9 @@ INPUT_CSV      = sys.argv[1] if len(sys.argv) > 1 else "Inbox/Inbox_Extracted_Da
 TIMESTAMP      = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_CSV     = f"csv_outputs/Extracted_{TIMESTAMP}.csv"
 
+# Create the output directory if it doesn’t exist
+os.makedirs(os.path.dirname(OUTPUT_CSV), exist_ok=True)
+
 # ---------------------------------------------------------------------------
 # Helper functions
 # ---------------------------------------------------------------------------
