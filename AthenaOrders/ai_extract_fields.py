@@ -22,9 +22,7 @@ except ImportError:
 # ---------------------------------------------------------------------------
 load_dotenv()
 
-DA_TOKEN_URL = os.getenv("DA_TOKEN_URL", "https://backoffice.doctoralliance.com/token")
-DA_USERNAME  = os.getenv("DA_USERNAME", "")
-DA_PASSWORD  = os.getenv("DA_PASSWORD", "")
+AUTH_TOKEN   = os.getenv("AUTH_TOKEN", "")
 DA_GETFILE_URL = os.getenv("DA_GETFILE_URL", "https://api.doctoralliance.com/document/getfile?docId.id={doc_id}")
 
 AZURE_ENDPOINT = os.getenv("AZURE_FORM_ENDPOINT", "")  # e.g. https://<resource>.cognitiveservices.azure.com/
@@ -40,18 +38,10 @@ OUTPUT_CSV     = f"csv_outputs/Extracted_{TIMESTAMP}.csv"
 # ---------------------------------------------------------------------------
 
 def get_da_token() -> str:
-    data = {
-        "grant_type": "password",
-        "username": DA_USERNAME,
-        "password": DA_PASSWORD
-    }
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
-    r = requests.post(DA_TOKEN_URL, data=data, headers=headers, timeout=30)
-    r.raise_for_status()
-    token = r.json().get("access_token")
-    if not token:
-        raise RuntimeError("Unable to fetch DA token")
-    return token
+    """Return the pre-generated AUTH_TOKEN from environment."""
+    if not AUTH_TOKEN:
+        raise RuntimeError("AUTH_TOKEN not set in environment or .env file")
+    return AUTH_TOKEN
 
 
 def fetch_pdf_bytes(doc_id: str, token: str) -> bytes:
