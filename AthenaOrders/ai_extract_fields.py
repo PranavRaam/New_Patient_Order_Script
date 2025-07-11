@@ -84,10 +84,9 @@ def analyze_with_azure(pdf_bytes: bytes) -> Dict[str, str]:
     client = DocumentIntelligenceClient(AZURE_ENDPOINT, credential)
 
     print(f"[Azure] Analyzing (bytes={len(pdf_bytes)})")
-    # SDK >=1.0.0 expects the raw document bytes via the 'document' parameter
     poller = client.begin_analyze_document(
-        AZURE_MODEL,              # model_id positional
-        pdf_bytes,                # body positional
+        pdf_bytes,                # body (document) first positional
+        model_id=AZURE_MODEL,
         content_type="application/pdf"
     )
     result = poller.result()
