@@ -1,0 +1,452 @@
+Page,,Physician,Doc Type,Facility,Facility Type,Patient,Status,Received On,ID,,patient_name,dob,start_of_care,episode_start,episode_end,mrn,icd_codes
+Page 1,,"Dr. Jauregui, Hugo G.",485 Cert,Bayada Home Health Care Inc-Providence,Homecare,"ROCK, LEONARD",New,07/10/2025,9392693,,,,,,,,
+Page 1,,"Dr. Maskey, Sachin",485 Recert,All At Home Health Care-Allston,Homecare,"GOMES, CONCEPCION",Prepared,07/10/2025,9391526,,,1/9/1941,11/5/2024,7/3/2025,8/31/2025,1753,"G30.9
+F02.818
+F22
+E78.5
+D64.9
+Z79.01"
+Page 1,,"Dr. Will, Christine A.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"PACHECO, GERALDINA",Prepared,07/10/2025,9391297,,,9/25/1935,6/18/2025,6/22/2025,8/20/2025,2815983,"I50.33
+I48.92
+I44.2
+E22.2
+M19.90
+G89.4
+F41.9"
+Page 1,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"NASCIMENTO, DOMINGOS M.",Prepared,07/10/2025,9391291,,,11/18/1937,7/9/2025,7/9/2025,8/16/2025,2783785,
+Page 1,,"Dr. Gularek, Jordan C.",Other,Southcoast VNA – Community Office (Fairhaven),Homecare,"MARTINHO, EUGENIA",Reviewing,07/10/2025,9391277,,,4/1/1926,7/7/25,7/7/2025,9/4/2025,2704239,"G31.1
+F03.90
+R63.4
+K59.00
+I26.99
+I10
+G45.9
+I51.89
+G43.909"
+Page 1,,"Dr. Gularek, Jordan C.",485 Recert,Southcoast VNA – Community Office (Fairhaven),Homecare,"MACIEL, PATRICIA A.",Reviewing,07/10/2025,9391276,,,1/6/1951,6/23/2025,6/27/2025,8/25/2025,2682827,"J91.0
+Z48.03
+J44.9
+M48.061
+F32.A
+F41.9
+E11.9"
+Page 1,,"Dr. Gularek, Jordan C.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"HOLT, RICHARD C.",Prepared,07/10/2025,9391258,,,4/4/1941,7/9/2025,,,2576559,
+Page 1,,"Dr. Caldas, Robert J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"CARVALHO, ANTONIO S.",Prepared,07/10/2025,9391219,,,7/1/1933,,Start date: 6/30/2025,,2312121,
+Page 1,,"Dr. Caldas, Robert J.",Other,Southcoast VNA – Community Office (Fairhaven),Homecare,"CARVALHO, ANTONIO S.",Reviewing,07/10/2025,9391217,,,7/1/1933,,7/6/2025,10/3/2025,2312121,"I63.9
+E78.5
+K21.9
+E03.8
+H81.10
+F03.90
+F41.1
+R29.6
+Z85.46"
+Page 1,,"Dr. Gularek, Jordan C.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"ALVES, LOIS M.",New,07/10/2025,9391210,,,5/13/1951,7/9/2025,7/20/2025,7/24/2025,2182563,
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Smigel, Kathleen A.",New,07/10/2025,9390352,,,Date of 02/15/1953 Birth:,07/08/2025,07/06/2025,09/03/2025,(MA250505025302),
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Santos, Alfredo",New,07/10/2025,9390347,,,Date of 10/24/1938 Birth:,5/19/2025,05/19/2025,07/17/2025,(MA230420103801),"M67.813
+M67.814
+M15.9"
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Brilhante, John",New,07/10/2025,9390340,,,03/13/1944,05/13/2025,05/13/2025,06/05/25,100994168,
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Lima, Mary",New,07/10/2025,9390310,,,08/18/1943,06/06/2025,,,MA200210084304,
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Lima, Mary",Prepared,07/10/2025,9390308,,,08/18/1943,05/16/2025,,06/03/25,MA200210084304,
+Page 2,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Ponte, Karyn M.",Prepared,07/10/2025,9390298,,,11/04/1949,06/16/2025,07/12/25,08/08/25,MA250609114901,
+Page 2,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Bergeron, Pauline",Reviewing,07/10/2025,9390293,,,02/22/1945,11/19/2024,05/18/2025,07/16/2025,MA230222024501,"I10.
+F20.9
+R13.10
+E78.5
+K21.9
+Z79.4
+Z90.89"
+Page 2,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Oliver, Raymond",Prepared,07/10/2025,9390290,,,Date of 03/23/1940 Birth:,07/09/2025,07/08/2025,09/05/2025,(MA240207034003),
+Page 2,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Oliver, Raymond",Prepared,07/10/2025,9390288,,,Date of 03/23/1940 Birth:,07/09/2025,07/08/2025,09/05/2025,(MA240207034003),
+Page 2,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Smigel, Kathleen A.",New,07/10/2025,9390286,,,Date of 02/15/1953 Birth:,07/08/2025,07/06/2025,09/03/2025,(MA250505025302),
+Page 3,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Sylvia, Rosalie",New,07/10/2025,9390284,,,Date of 05/22/1938 Birth:,6/8/2025,06/08/2025,08/06/2025,(MA231024053804),"J44.9
+R53.83
+I11.0"
+Page 3,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Sylvia, Rosalie",New,07/10/2025,9390283,,,Date of 05/22/1938 Birth:,6/8/2025,06/08/2025,08/06/2025,(MA231024053804),"J44.9
+R53.83
+I11.0"
+Page 3,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Oliver, Raymond",New,07/10/2025,9390280,,,Date of 03/23/1940 Birth:,07/09/2025,07/08/2025,09/05/2025,(MA240207034003),
+Page 3,,"Dr. Mackler, Stephen",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Oliver, Raymond",Prepared,07/10/2025,9390278,,,Date of 03/23/1940 Birth:,07/09/2025,07/08/2025,09/05/2025,(MA240207034003),
+Page 3,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Rivera, Elba",Reviewing,07/10/2025,9390277,,,02/14/1960,03/14/2025,05/13/2025,07/11/2025,MA241122026006,"M54.9
+J44.89
+R21.
+M81.0
+I10.
+I25.10
+E78.5
+K59.09
+K21.9
+E04.9"
+Page 3,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Burns, Ada M.",New,07/10/2025,9390274,,,01/15/1955,06/27/2025,06/27/2025,08/18/25,MA220701015501,
+Page 3,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Burns, Ada M.",New,07/10/2025,9390273,,,01/15/1955,06/04/2025,06/04/2025,06/19/25,MA220701015501,
+Page 3,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Burns, Ada M.",Prepared,07/10/2025,9390272,,,01/15/1955,04/30/2025,04/30/2025,06/19/25 06/19/25 06/19/25 05/31/25,MA220701015501,
+Page 3,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"COOMBS, FRANCENE J.",Prepared,07/10/2025,9390243,,,6/6/1951,6/30/2025,,Med End,2062883,
+Page 3,,"Dr. Wu, Elaine",485 Recert,Nizhoni Health-Fall River,Homecare,"Ourique, Maria",New,07/10/2025,9390231,,,10/23/1952,Start 08/09/2019,07/08/2025,09/05/2025,770008,"F41.9
+I10
+K59.00
+E78.00
+I71.9"
+Page 4,,"Dr. Addo, Theophilus V.",485 Recert,Nizhoni Health-Fall River,Homecare,"HANSEN, RANDALL S",Reviewing,07/10/2025,9390214,,,04/17/1966,03/19/2024,07/12/2025,09/09/2025,6844020,F31.9
+Page 4,,"Dr. DeFusco, Nicholas J.",485 Recert,Nizhoni Health-Fall River,Homecare,"FRATES, SCOTT",Reviewing,07/10/2025,9390211,,,02/01/1971,09/13/2024,07/10/2025,09/07/2025,3057020,F25.9
+Page 4,,"Dr. Martin, Daniel J.",485 Cert,Visiting Rehab & Nursing Services,Homecare,"Touhey, Maryann A.",Reviewing,07/10/2025,9390203,,,09/14/1962,06/03/2025,06/03/2025,08/01/2025,hcbr-MC-0602,Q93.82
+Page 4,,"Dr. Gularek, Jordan C.",485 Recert,Nizhoni Health-Fall River,Homecare,"Brooks, Darryl",Reviewing,07/10/2025,9390188,,,09/12/1978,09/04/2014,,09/05/2025,15538,F20.0
+Page 4,,"Dr. Bautista, Karmina",Other,Visiting Rehab & Nursing Services,Homecare,"Korab, Kevin",Prepared,07/10/2025,9390171,,,01/17/1962,06/10/2025,06/04/2025,08/02/2025,hcbr-MC-1342,
+Page 4,,"Dr. Caldas, Robert J.",Order,Guardian Home Health Care LLC - West Bridgewater,Homecare,"Velez-Morales, Yomayra",Prepared,07/09/2025,9389851,,,10/26/1975,06/04/2024,05/30/2025,07/28/2025,554005,
+Page 4,,"Dr. Afonso-Fede, Gloriane",485 Recert,Nizhoni Health-Fall River,Homecare,"Pierce, Gary J.",Prepared,07/09/2025,9389442,,,07/14/1967,09/12/2016,,07/26/2025,7864,F20.9
+Page 4,,"Dr. Liu, Bing",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"SENUICK, NANCY C.",Reviewing,07/09/2025,9389414,,,11/19/1944,6/20/2025,6/22/2025,8/20/2025,2957725,"J91.0
+Z48.03
+I48.0
+I12.9
+N18.31
+J45.20
+I95.1
+E03.8
+E78.00"
+Page 4,,"Dr. Will, Christine A.",485 Recert,Nizhoni Health-Fall River,Homecare,"Pamplona, Donna",Prepared,07/09/2025,9389393,,,07/27/1957,11/06/2018,06/02/2025,07/31/2025,13785,F20.0
+Page 4,,"Dr. Bautista, Karmina",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"RAMOS, MARY R.",Prepared,07/09/2025,9389390,,,10/16/1933,6/18/2025,6/20/2025,8/18/2025,2879507,
+Page 5,,"Dr. Caldas, Robert J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"MEDEIROS, FRANK R.",Prepared,07/09/2025,9389369,,,5/24/1943,7/8/2025,Med Start,Med End,2730036,
+Page 5,,"Dr. Martin, Daniel J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"FURTADO, MARIA M.",Prepared,07/09/2025,9389358,,,4/10/1943,7/8/2025,Med Start 11/16/2020,Med End 7/8/2025,2495412,
+Page 5,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DYER, NORMA L.",Prepared,07/09/2025,9389345,,,11/13/1931,,Start 7/8/2025,,2158031,
+Page 5,,"Dr. Will, Christine A.",485 Recert,Nizhoni Health Systems-Somerville,Homecare,"Rivers, Shaun",Prepared,07/09/2025,9389338,,,07/25/1962,10/19/2022,06/05/2025,08/03/2025,1664020,E11.9
+Page 5,,"Dr. Caldas, Robert J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"CARVALHO, ANTONIO S.",Prepared,07/09/2025,9389310,,,7/1/1933,7/3/2025,7/6/2025,9/30/2025,2312121,
+Page 5,,"Dr. Will, Christine A.",485 Recert,Nizhoni Health Systems-Somerville,Homecare,"Carvalho, Makaela",Prepared,07/09/2025,9389293,,,06/16/1994,08/18/2023,06/08/2025,08/06/2025,421010,F25.0
+Page 5,,"Dr. Liu, Bing",485 Cert,AccentCare Fall River,Homecare,"MEDEIROS, LISA L.",Prepared,07/09/2025,9389136,,,5/8/1966,7/2/2025,7/2/2025,8/30/2025,C0200110432201,"Z47.1
+I12.9
+E11.22
+N18.30
+E11.42
+E11.43
+K31.84
+E11.319"
+Page 5,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Brooks, Dale",Prepared,07/09/2025,9389069,,,Date of 02/24/1952 Birth:,6/22/2025,06/14/2025,08/12/2025,(MA240318025203),"I69.351
+S32.019
+J45.998"
+Page 5,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Brooks, Dale",Prepared,07/09/2025,9389062,,,Date of 02/24/1952 Birth:,6/29/2025,06/14/2025,08/12/2025,(MA240318025203),"I69.351
+S32.019
+J45.998"
+Page 5,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Brooks, Dale",Prepared,07/09/2025,9389057,,,02/24/1952,07/01/2025,07/01/2025,,MA240318025203,
+Page 6,,"Dr. Maalouf-Kaleshian, Karine",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Brooks, Dale",Prepared,07/09/2025,9389054,,,02/24/1952,07/01/2025,07/01/2025,08/12/25,MA240318025203,
+Page 6,,"Dr. Jauregui, Hugo G.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Rodgers, Joseph",Reviewing,07/09/2025,9388012,,,05/10/1942,06/21/2023,06/10/2025,08/08/2025,100999559,J10.00
+Page 6,,"Dr. Jauregui, Hugo G.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Debarros, Maria",Reviewing,07/09/2025,9388002,,,11/29/1941,08/22/2019,05/22/2025,07/20/2025,101000978,"E11.9
+F06.4
+I10.
+F20.9
+E66.9
+H54.7
+E78.5
+Z68.32
+Z79.84
+Z79.02
+Z85.3
+Z90.11
+Z87.01"
+Page 6,,"Dr. Jauregui, Hugo G.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Garcia, Maria",Reviewing,07/09/2025,9387996,,,05/06/1937,05/19/2023,07/07/2025,09/04/2025,MA230518053704,"R78.81
+B95.61
+B34.8
+J96.01
+I11.0
+I50.32
+I48.91
+N17.9
+I25.10
+M06.9
+E78.00"
+Page 6,,"Dr. Jauregui, Hugo G.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Garcia, Maria",Reviewing,07/09/2025,9387991,,,05/06/1937,05/19/2023,05/08/2025,07/06/2025,MA230518053704,"R78.81
+B95.61
+B34.8
+J96.01
+I11.0
+I50.32
+I48.91
+N17.9
+I25.10
+M06.9
+E78.00"
+Page 6,,"Dr. Jauregui, Hugo G.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Pontes, Eugenio",Reviewing,07/09/2025,9387846,,,11/03/1951,02/01/2022,05/16/2025,07/14/2025,MA200720115101,"I11.0
+M48.061
+M17.11
+H91.93
+F41.9
+K21.9
+Z79.4"
+Page 6,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Dacosta, Marialucil",Reviewing,07/09/2025,9387705,,,01/13/1934,06/02/2017,06/20/2025,08/18/2025,100990085,"L03.115
+R60.0
+F03.90
+M81.0
+Z79.82"
+Page 6,,"Dr. Afonso-Fede, Gloriane",485 Cert,Dartmouth HH,Homecare,"Rossi, Kari",Prepared,07/09/2025,9387637,,,10/28/1961,06/16/2025,06/16/2025,08/14/2025,6669015,"I69.398
+R26.81
+B95.61
+Z45.2
+I10
+D64.9
+E03.9"
+Page 6,,"Dr. Bautista, Karmina",Other,Visiting Rehab & Nursing Services,Homecare,"Korab, Kevin",Prepared,07/09/2025,9387598,,,01/17/1962,06/05/2025,Start Date 06/04/2025,End Date 08/02/2025,(1292274871),
+Page 6,,"Dr. Bautista, Karmina",485 Cert,Visiting Rehab & Nursing Services,Homecare,"Korab, Kevin",Prepared,07/09/2025,9387597,,,,06/04/2025,06/04/2025,08/02/2025,hcbr-MC-1342,N39.0
+Page 7,,"Dr. Bautista, Karmina",PT,Visiting Rehab & Nursing Services,Homecare,"DOLIVEIRA, JEANNE",Prepared,07/09/2025,9387581,,,09/11/1952,Date: 06/09/2025,05/21/2025,07/19/2025,Hcbr-MC893,
+Page 7,,"Dr. QIN, SHAN",485 Cert,Bayada Home Health Care-Dartmouth,Homecare,"SILVA, PETER M.",Prepared,07/08/2025,9387517,,,7/21/1951,6/25/2025,6/25/2025,8/23/2025,28700219575501,"M46.26
+M46.46
+M46.56
+B95.62
+E11.42
+G06.1
+I12.9"
+Page 7,,"Dr. QIN, SHAN",Order,Bayada Home Health Care-Dartmouth,Homecare,"SILVA, PETER M.",Prepared,07/08/2025,9387516,,,7/21/1951,6/26/2025,6/25/2025,8/23/2025,MR#: 28700219575501,
+Page 7,,"Dr. Potts, Earl",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"TAVARES, DANIEL",Prepared,07/08/2025,9387297,,,8/25/1943,7/3/2025,7/7/2025,8/23/2025,3027530,
+Page 7,,"Dr. Hait, Michael A.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"SILVA, CARMEN",Prepared,07/08/2025,9387275,,,7/8/1946,6/13/2025,6/18/2025,8/16/2025,2967403,"N17.9
+E11.22
+N18.31
+G31.84
+C95.11"
+Page 7,,"Dr. Coury, Pamela",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"RAINVILLE, ARTHUR L.",Prepared,07/08/2025,9387267,,,10/29/1946,7/3/2025,7/3/2025,7/21/2025,3136572,
+Page 7,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"MIRANDA, CAROLYN J.",Prepared,07/08/2025,9387260,,,8/30/1961,7/3/2025,7/6/2025,7/19/2025,2122243,
+Page 7,,"Dr. Caldas, Robert J.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"MILLS, JOHN H.",Prepared,07/08/2025,9387258,,,3/31/1952,6/19/2025,6/19/2025,8/17/2025,2101846,S22.41XD
+Page 7,,"Dr. Caldas, Robert J.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"GROSSMAN, ALAN",Prepared,07/08/2025,9387239,,,11/16/1946,6/18/25,6/18/2025,8/16/2025,3159570,S06.5X0D
+Page 7,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DEAN, TIFFANY A.",Prepared,07/08/2025,9387232,,,5/7/1970,7/7/2025 tablet,Med Start 6/18/2025,Med End 7/18/2025,2090629,
+Page 8,,"Dr. Potts, Earl",Order,All At Home Health Care-Allston,Homecare,"Loggins, Agnes",Prepared,07/08/2025,9387145,,,2/3/1935,4/11/2025,6/10/2025,8/8/2025,I-48429,
+Page 8,,"Dr. Will, Christine A.",485 Cert,Bayada Home Health Care-Dartmouth,Homecare,"GATES, JEAN A.",Prepared,07/08/2025,9386327,,,12/12/1951,6/23/2025,6/23/2025,8/21/2025,28700218762601,"Z48.3
+D63.0
+I10
+I25.10
+E78.5
+F31.9"
+Page 8,,"Dr. Will, Christine A.",Order,Bayada Home Health Care Inc-Plymouth,Homecare,"ARCHER, BARBARA",Prepared,07/08/2025,9386219,,,6/27/1953,4/17/2025,4/12/2025,6/10/2025,Medicare No 9DJ9EU0UU11 MR#: PLF00079504601,
+Page 8,,"Dr. Will, Christine A.",485 Cert,Dartmouth HH,Homecare,"Brown, Ruth D.",Prepared,07/08/2025,9385683,,,03/30/1937,06/11/2025,06/11/2025,08/09/2025,6653015,"I10
+K59.00
+K76.89
+M51.27
+E03.9
+C18.9"
+Page 8,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Alves, Geraldine F.",Prepared,07/08/2025,9385678,,,12/12/1932,05/19/2025,05/19/2025,07/17/2025,1028001,
+Page 8,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Clark, Ella S.",Prepared,07/08/2025,9385677,,,04/11/1923,06/05/2025,06/05/2025,08/03/2025,3270001,
+Page 8,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Burt, Helen L.",Prepared,07/08/2025,9385672,,,11/29/1936,06/06/2025,06/06/2025,08/04/2025,4532011,
+Page 8,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Levin, Frances",Prepared,07/08/2025,9385670,,,01/16/1935,06/28/2024,06/23/2025,08/21/2025,3684011,
+Page 8,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"McCarthy, Maureen",Prepared,07/08/2025,9385668,,,06/04/1943,05/08/2025,05/08/2025,07/06/2025,4526015,
+Page 8,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Sullivan, Dennis B.",Prepared,07/08/2025,9385645,,,06/26/1937,06/16/2025,06/16/2025,08/14/2025,6675015,
+Page 9,,"Dr. QIN, SHAN",485 Cert,Dartmouth HH,Homecare,"Sullivan, Dennis B.",Prepared,07/08/2025,9385639,,,06/26/1937,06/16/2025,06/16/2025,08/14/2025,6675015,E11.22
+Page 9,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Roig, Paquita",Prepared,07/08/2025,9385628,,,11/22/1940,05/17/2025,05/17/2025,07/15/2025,2639009,
+Page 9,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Lonsdale, Jane H.",Prepared,07/08/2025,9385625,,,02/20/1930,03/09/2025,05/08/2025,07/06/2025,672008,
+Page 9,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Fawcett, Suzanne B.",Prepared,07/08/2025,9385621,,,12/08/1939,06/06/2025,06/06/2025,08/04/2025,5915015,
+Page 9,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Werly, Bonnie",Prepared,07/08/2025,9385615,,,06/16/1939,06/10/2025,06/10/2025,08/08/2025,3320011,
+Page 9,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Reddy, Cynthia",Prepared,07/08/2025,9385565,,,10/04/1946,05/16/2025,05/16/2025,07/14/2025,519009,
+Page 9,,"Dr. Liu, Bing",Order,Dartmouth HH,Homecare,"Lake, Raymond A.",Prepared,07/08/2025,9385537,,,09/29/1956,06/15/2025,06/15/2025,08/13/2025,6433015,
+Page 9,,"Dr. Liu, Bing",Order,Dartmouth HH,Homecare,"Davis McGregor, Debra E.",Prepared,07/08/2025,9385534,,,09/02/1953,05/31/2025,05/31/2025,07/29/2025,6414015,
+Page 9,,"Dr. Coury, Pamela",Order,Dartmouth HH,Homecare,"Barboza, Ernest",Prepared,07/08/2025,9385466,,,02/22/1937,03/06/2025,05/05/2025,07/03/2025,6140015,
+Page 9,,"Dr. Coury, Pamela",Order,Dartmouth HH,Homecare,"Gatenby, Duane C.",Prepared,07/08/2025,9385463,,,01/07/1953,06/05/2025,06/05/2025,08/03/2025,6473015,
+Page 10,,"Dr. Caldas, Robert J.",Order,Dartmouth HH,Homecare,"Buckles, Patricia A.",Prepared,07/08/2025,9385424,,,09/19/1948,05/29/2025,05/29/2025,07/27/2025,2416015,
+Page 10,,"Dr. Bautista, Karmina",Order,Dartmouth HH,Homecare,"Turner, Susan",Prepared,07/08/2025,9385390,,,07/07/1950,07/01/2025,07/01/2025,08/29/2025,6757015,
+Page 10,,"Dr. Afonso-Fede, Gloriane",Order,Dartmouth HH,Homecare,"Fairbanks, Paul",Prepared,07/08/2025,9385369,,,03/25/1943,12/19/2024,06/17/2025,08/15/2025,3076011,
+Page 10,,"Dr. Afonso-Fede, Gloriane",Order,Dartmouth HH,Homecare,"Rossi, Kari",Prepared,07/08/2025,9385367,,,10/28/1961,06/16/2025,06/16/2025,08/14/2025,6669015,
+Page 10,,"Dr. Will, Christine A.",Order,Fairhaven HH&H,Hospice,"Fuller, Norman",Prepared,07/08/2025,9385343,,,03/26/1932,05/01/2025,05/01/2025,07/29/2025,1661015,
+Page 10,,"Dr. Caldas, Robert J.",Order,Fairhaven HH&H,Hospice,"Rego, John",Prepared,07/08/2025,9385282,,,01/29/1954,11/04/2024,05/03/2025,07/01/2025,5307015,
+Page 10,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Smigel, Kathleen A.",Prepared,07/08/2025,9385239,,,Date of 02/15/1953 Birth:,07/07/2025,07/06/2025,09/03/2025,(MA250505025302),
+Page 10,,"Dr. Coury, Pamela",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"RAINVILLE, ARTHUR L.",Prepared,07/07/2025,9383594,,,10/29/1946,,Start date: 7/3/2025,,3136572,
+Page 10,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DYER, NORMA L.",Prepared,07/07/2025,9383544,,,11/13/1931,,Start date: 7/4/2025,,2158031,
+Page 10,,"Dr. Coury, Pamela",485 Recert,Nightingale Visiting Nurses-Taunton,Homecare,"Azevedo, Isabel",Prepared,07/07/2025,9383046,,,11/19/1945,02/09/2025,06/09/2025,08/07/2025,MA201027114506,"K21.9
+G30.9
+E78.5
+F32.A
+E11.65
+Z79.4"
+Page 11,,"Dr. Afonso-Fede, Gloriane",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tevenal, Aida",Prepared,07/07/2025,9382474,,,09/02/1956,07/05/2025,07/05/2025,Target Date: 08/17/25,MA241113095602,
+Page 11,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Desousa, Gilda",Prepared,07/07/2025,9382230,,,11/01/1941,06/12/2025,06/12/2025,,MA241218114103,
+Page 11,,"Dr. Liu, Bing",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DAVIS, JOSEPH A.",Prepared,07/05/2025,9381879,,,6/22/1934,6/5/2025,6/8/2025,6/28/2025,2390602,
+Page 11,,"Dr. Liu, Bing",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DAVIS, JOSEPH A.",Prepared,07/05/2025,9381877,,,6/22/1934,6/4/2025,Med Start,Med End,2390602,
+Page 11,,"Dr. Liu, Bing",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DAVIS, JOSEPH A.",Prepared,07/05/2025,9381876,,,6/22/1934,6/3/2025,6/1/2025,6/28/2025,2390602,
+Page 11,,"Dr. Liu, Bing",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"DAVIS, JOSEPH A.",Prepared,07/05/2025,9381875,,,6/22/1934,5/23/2025,Med Start,Med End,2390602,
+Page 11,,"Dr. Coury, Pamela",Order,Bayada Home Health Care-Dartmouth,Homecare,"PERRIERA, BARBARA",Prepared,07/03/2025,9381644,,,12/23/1942,7/3/2025,6/6/2025,8/4/2025,MR#: 28700217488301,
+Page 11,,"Dr. Coury, Pamela",Other,Nightingale Visiting Nurses-Taunton,Homecare,"KEARNEY, WILLIAM",Prepared,07/03/2025,9381073,,,05/12/1937,06/12/2025,06/12/2025,Target Date: 08/07/25,MA201027053705,
+Page 11,,"Dr. Coury, Pamela",485 Recert,Nightingale Visiting Nurses-Taunton,Homecare,"francis, lucy",Prepared,07/03/2025,9381070,,,06/12/1942,02/25/2025,06/25/2025,08/23/2025,MA250220064201,S22.41X
+Page 11,,"Dr. Caldas, Robert J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Gauthier, Evelyn",Prepared,07/03/2025,9381066,,,07/06/1931,05/21/2025,06/28/25,07/19/25,MA250321073103,
+Page 12,,"Dr. Caldas, Robert J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Carmo, George",Prepared,07/03/2025,9381063,,,10/06/1949,05/28/2025,,06/28/25,MA250124104906,
+Page 12,,"Dr. Caldas, Robert J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Carmo, George",Prepared,07/03/2025,9381062,,,10/06/1949,05/08/2025,,,MA250124104906,
+Page 12,,"Dr. Bier, Jonathan D.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Lopes, Maria",Prepared,07/03/2025,9381056,,,06/25/1936,06/18/2025,06/18/2025,06/07/25,MA250206063603,
+Page 12,,"Dr. Bier, Jonathan D.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Lopes, Maria",Prepared,07/03/2025,9381051,,,06/25/1936,05/10/2025,05/10/2025,06/07/25,MA250206063603,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tavares, Shirley",Prepared,07/03/2025,9381036,,,11/10/1949,06/05/2025,06/05/2025,07/26/25,MA250328114901,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"DIAZ, GLORIA",Prepared,07/03/2025,9381033,,,11/10/1949,05/29/2025,05/29/2025,07/26/25,MA250328114901,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tavares, Shirley",Prepared,07/03/2025,9381031,,,11/10/1949,05/29/2025,05/29/2025,07/05/25,MA250328114901,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"DIAZ, GLORIA",Prepared,07/03/2025,9381030,,,04/09/1951,06/20/2025,06/20/2025,08/17/25,100994258,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"DIAZ, GLORIA",Prepared,07/03/2025,9381028,,,04/09/1951,06/17/2025,06/17/2025,08/17/25,100994258,
+Page 12,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tavares, Shirley",Prepared,07/03/2025,9381027,,,11/10/1949,06/05/2025,06/05/2025,07/26/25,MA250328114901,
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381025,,,Date of 10/15/1951 Birth:,07/01/2025,06/25/2025,08/23/2025,(MA200827105106),"E11.65
+M47.816
+E11.69"
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tavares, Shirley",Prepared,07/03/2025,9381022,,,11/10/1949,05/29/2025,05/29/2025,07/05/25 07/26/25,MA250328114901,
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381020,,,Date of 10/15/1951 Birth:,6/29/2025,06/25/2025,08/23/2025,(MA200827105106),"E11.65
+M47.816
+E11.69"
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381017,,,10/15/1951,07/01/2025,08/23/25,08/23/25,MA200827105106,
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381009,,,Date of 10/15/1951 Birth:,07/01/2025,06/25/2025,08/23/2025,(MA200827105106),"E11.65
+M47.
+E11.69"
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381006,,,Date of 10/15/1951 Birth:,6/29/2025,06/25/2025,08/23/2025,(MA200827105106),"E11.65
+M47.
+E11.69"
+Page 13,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Correia, Maria",Prepared,07/03/2025,9381004,,,10/15/1951,07/01/2025,07/01/2025,08/23/25,MA200827105106,
+Page 13,,"Dr. Will, Christine A.",485 Cert,Nightingale Visiting Nurses-Taunton,Homecare,"Martha Eno, Joan",Prepared,07/03/2025,9380905,,,05/16/1956,06/03/2025,06/03/2025,08/01/2025,MA250602055601,"M54.50
+M81.0
+M47.9
+G47.00
+H90.3
+E66.9
+I10.
+D12.6
+K21.00
+K22.719
+N32.81
+Z68.32
+Z87.440"
+Page 13,,"Dr. Will, Christine A.",485 Cert,Nightingale Visiting Nurses-Taunton,Homecare,"Medeiros, Kelly J.",Prepared,07/03/2025,9380837,,,11/23/1960,06/02/2025,06/02/2025,07/31/2025,MA221116116005,"E78.5
+F31.72
+E83.00
+J44.9
+K21.9
+K58.9
+M19.90
+M81.0"
+Page 13,,"Dr. QIN, SHAN",485 Recert,Guardian Home Health Care LLC - West Bridgewater,Homecare,"Varela, Manuel",Prepared,07/03/2025,9380558,,,02/08/1969,11/07/2024,07/05/2025,09/02/2025,457,"K31.84
+K59.89
+F20.0
+I10
+E66.01
+Z68.41
+Z79.84"
+Page 14,,"Dr. Caldas, Robert J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"LOUREIRO, ROBERT P.",Prepared,07/03/2025,9380320,,,11/9/1934,7/2/2025,6/27/2025,8/10/2025,2114147,
+Page 14,,"Dr. Bautista, Karmina",Order,Visiting Rehab & Nursing Services,Homecare,"VERISSIMO, DALIA",Prepared,07/03/2025,9379828,,,Date of 02/01/1951 Birth:,,06/24/2025,08/22/2025,(br-SWH-005),"I10.
+E11.65
+E11.329"
+Page 14,,"Dr. Martin, Daniel J.",Other,AccentCare Fall River,Homecare,"SASSEVILLE, EUGENE H.",Prepared,07/03/2025,9379812,,,4/27/1939,6/10/2025,6/16/2025,8/14/2025,C0200244548301,
+Page 14,,"Dr. Bautista, Karmina",Order,Nizhoni Health-Fall River,Homecare,"MAKER, ROBERT",Prepared,07/03/2025,9379703,,,03/26/1951,01/18/2023,05/07/2025,07/05/2025,3934020,
+Page 14,,"Dr. Bautista, Karmina",485 Recert,Nizhoni Health-Fall River,Homecare,"MAKER, ROBERT",Prepared,07/03/2025,9379686,,,03/26/1951,01/18/2023,07/06/2025,09/03/2025,3934020,S01.80XA
+Page 14,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Mimoso, Serafim",Prepared,07/03/2025,9379555,,,05/08/1933,06/03/2025,,06/16/25,MA250414053302,
+Page 14,,"Dr. Martin, Daniel J.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Mimoso, Serafim",Prepared,07/03/2025,9379553,,,05/08/1933,06/02/2025,06/02/2025,06/16/25,MA250414053302,
+Page 14,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"PACHECO, GERALDINA",Prepared,07/02/2025,9378579,,,9/25/1935,7/1/2025,Med Start 7/1/2025,Med End,2815983,
+Page 14,,"Dr. Bautista, Karmina",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tavares, Shirley",Prepared,07/02/2025,9378550,,,Date of 11/10/1949 Birth:,05/23/2025,05/28/2025,07/26/2025,#1289824298,
+Page 14,,"Dr. Will, Christine A.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"BOURASSA, MARY A.",Prepared,07/02/2025,9378509,,,1/9/1957,6/11/2025,6/13/2025,8/11/2025,2008861,"G62.9
+J42
+M47.9
+M17.11
+F41.0
+F31.9
+K58.1
+E03.9
+E66.811
+Z68.32"
+Page 15,,"Dr. Bautista, Karmina",485 Cert,Dartmouth HH,Homecare,"Turner, Susan",Prepared,07/02/2025,9377918,,,07/07/1950,07/01/2025,07/01/2025,08/29/2025,6757015,"I10
+E11.9
+J45.909
+E03.9
+F41.1
+K21.9"
+Page 15,,"Dr. QIN, SHAN",Conversation,Visiting Rehab & Nursing Services,Homecare,"Hill, Terry",Unread,07/02/2025,2196861,,,,,,,,
+Page 15,,"Dr. Gularek, Jordan C.",Conversation,Visiting Rehab & Nursing Services,Homecare,"Tomko Jr, Thomas J.",Unread,07/02/2025,2196856,,,,,,,,
+Page 15,,"Dr. Hait, Michael A.",485 Recert,Relief Home Health Services,Homecare,"MIRANDA, LEAH",Prepared,07/02/2025,9377451,,,4/15/1947,12/28/2022,6/15/2025,8/13/2025,NB0988,"I12.9
+N18.2
+I82.491
+J45.909
+M54.50
+E05.80
+R47.02
+E87.5"
+Page 15,,"Dr. QIN, SHAN",Order,Guardian Home Health Care LLC - West Bridgewater,Homecare,"Varela, Manuel",Prepared,07/02/2025,9377152,,,02/08/1969,11/07/2024,05/06/2025,07/04/2025,@1998-2025,
+Page 15,,"Dr. Silva, Dilma H.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"FURTADO, MANUEL",Prepared,07/02/2025,9376954,,,07/13/1943,06/16/2025,06/16/2025,,MA220126074307,
+Page 15,,"Dr. Silva, Dilma H.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"FURTADO, MANUEL",Prepared,07/02/2025,9376952,,,07/13/1943,06/16/2025,06/16/2025,07/13/25,MA220126074307,
+Page 15,,"Dr. Will, Christine A.",485 Cert,Dartmouth HH,Homecare,"Lynch, Timothy",Prepared,07/02/2025,9376882,,,12/13/1977,06/24/2025,06/24/2025,08/22/2025,5891015,"I27.20
+D69.6
+F10.21
+L40.52
+M54.50
+G47.33
+F43.23
+J32.9"
+Page 15,,"Dr. QIN, SHAN",485 Cert,Dartmouth HH,Homecare,"Werly, Bonnie",Prepared,07/02/2025,9376875,,,06/16/1939,06/10/2025,06/10/2025,08/08/2025,3320011,"I10
+R42
+E10.43
+K31.84
+E10.21
+E10.40
+K86.89
+E83.52
+N39.41
+N28.1
+M41.86
+M54.30
+E78.5"
+Page 15,,"RODRIGUES, JUNE A. NP",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tilley, Marsha",Prepared,07/01/2025,9376179,,,Date of 10/08/1951 Birth:,6/22/2025,06/20/2025,08/18/2025,(MA240624105104),"I10.
+G89.29
+M19.90"
+Page 16,,"RODRIGUES, JUNE A. NP",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Tilley, Marsha",Prepared,07/01/2025,9376177,,,Date of 10/08/1951 Birth:,6/22/2025,06/20/2025,08/18/2025,(MA240624105104),"I10.
+G89.29
+M19.90"
+Page 16,,"Dr. Caldas, Robert J.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"LOUREIRO, ROBERT P.",Prepared,07/01/2025,9376136,,,11/9/1934,6/30/2025,6/30/2025,8/9/2025,2114147,
+Page 16,,"Dr. Caldas, Robert J.",485 Cert,Southcoast VNA – Community Office (Fairhaven),Homecare,"LOUREIRO, ROBERT P.",Prepared,07/01/2025,9376132,,,11/9/1934,6/12/2025,6/12/2025,8/10/2025,2114147,
+Page 16,,"Dr. Will, Christine A.",Order,Southcoast VNA – Community Office (Fairhaven),Homecare,"COOMBS, FRANCENE J.",Prepared,07/01/2025,9376101,,,6/6/1951,6/30/2025,6/30/2025,7/5/2025,2062883,
+Page 16,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Martins, Carminda",Prepared,07/01/2025,9375892,,,Date of 07/14/1938 Birth:,06/30/2025,06/23/2025,08/21/2025,(MA240918073804),"J18.9
+I12.9
+N18.31"
+Page 16,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Martins, Carminda",Prepared,07/01/2025,9375890,,,Date of 07/14/1938 Birth:,06/20/2025,06/23/2025,08/21/2025,(MA240918073804),"J18.9
+I12.9
+N18.31"
+Page 16,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Martins, Carminda",Prepared,07/01/2025,9375889,,,Date of 07/14/1938 Birth:,04/24/2025,04/24/2025,06/22/2025,(MA240918073804),"J18.9
+I12.9
+N18.31"
+Page 16,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Martins, Carminda",Prepared,07/01/2025,9375886,,,07/14/1938,04/24/2025,04/24/2025,06/22/2025,MA240918073804,"I12.9
+N18.31
+M15.9
+E78.49
+H26.9
+Z98.890"
+Page 16,,"Dr. QIN, SHAN",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Pedra, Mary",Prepared,07/01/2025,9375791,,,Date of 02/27/1937 Birth:,06/27/2025,06/26/2025,08/24/2025,(MA221012023702),"F03.90
+R60.9
+G47.9"
+Page 16,,"Dr. QIN, SHAN",Other,Nightingale Visiting Nurses-Taunton,Homecare,"McDonald, David",Prepared,07/01/2025,9375790,,,Date of 05/04/1955 Birth:,06/27/2025,06/18/2025,08/16/2025,(MA240828055502),"I12.9
+N18.32
+D63.1"
+Page 17,,"Dr. QIN, SHAN",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Lopez, Roderick",Prepared,07/01/2025,9375788,,,Date of 05/21/1937 Birth:,06/30/2025,06/19/2025,08/17/2025,(MA200528053701),"I26.99
+M48.56X
+I11.0"
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Clark, Ella S.",Prepared,07/01/2025,9374773,,,04/11/1923,06/05/2025,06/05/2025,08/03/2025,3270001,
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Levin, Frances",Prepared,07/01/2025,9374768,,,01/16/1935,06/28/2024,06/23/2025,08/21/2025,3684011,
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Hanna, JR, Stephen S.",Prepared,07/01/2025,9374764,,,03/11/1936,03/15/2025,05/14/2025,07/12/2025,6208015,
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Whewell, Yvonne A.",Prepared,07/01/2025,9374761,,,04/08/1952,05/23/2025,05/23/2025,07/21/2025,6544015,
+Page 17,,"Dr. Will, Christine A.",485 Recert,Dartmouth HH,Homecare,"Levin, Frances",Prepared,07/01/2025,9374752,,,01/16/1935,06/28/2024,06/23/2025,08/21/2025,3684011,"I08.0
+I05.1
+I25.10
+R26.89
+R55
+R29.6
+I48.0
+I10
+M15.9
+M50.30
+H93.19
+K21.9
+G57.30
+E78.2
+Z91.81"
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"DeCosta, Helen",Prepared,07/01/2025,9374742,,,07/26/1934,05/23/2025,05/23/2025,07/21/2025,888008,
+Page 17,,"Dr. Will, Christine A.",Order,Dartmouth HH,Homecare,"Levin, Frances",Prepared,07/01/2025,9374733,,,01/16/1935,06/28/2024,04/24/2025,06/22/2025,3684011,
+Page 17,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Dossantos, Antonio",Prepared,07/01/2025,9374711,,,09/19/1935,04/05/2025,06/04/2025,08/02/2025,898015,
+Page 17,,"Dr. QIN, SHAN",Order,Dartmouth HH,Homecare,"Fawcett, Suzanne B.",Prepared,07/01/2025,9374704,,,12/08/1939,06/06/2025,06/06/2025,08/04/2025,5915015,
+Page 18,,"Dr. QIN, SHAN",485 Recert,Dartmouth HH,Homecare,"Dossantos, Antonio",Prepared,07/01/2025,9374673,,,09/19/1935,04/05/2025,06/04/2025,08/02/2025,898015,"I44.2
+I48.0
+Z95.810
+I13.0
+I50.43
+N18.31
+K21.9
+N40.0
+E78.00
+M10.9
+H91.90"
+Page 18,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Swift, Joan",Prepared,07/01/2025,9374598,,,05/05/1943,01/08/2025,05/08/2025,07/06/2025,4034011,
+Page 18,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Moura, Pearl I.",Prepared,07/01/2025,9374592,,,01/29/1930,01/04/2022,06/17/2025,08/15/2025,6843,
+Page 18,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Demers, Anne M.",Prepared,07/01/2025,9374590,,,10/02/1930,05/24/2025,05/24/2025,07/22/2025,3196001,
+Page 18,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Baxter-Paparella, Carla",Prepared,07/01/2025,9374585,,,02/28/1949,06/19/2025,06/19/2025,08/17/2025,6451015,
+Page 18,,"Dr. Martin, Daniel J.",Order,Dartmouth HH,Homecare,"Sawicki, Stanley D.",Prepared,07/01/2025,9374583,,,02/20/1950,05/14/2025,05/14/2025,07/12/2025,5725015,
+Page 18,,"Dr. Caldas, Robert J.",Order,Dartmouth HH,Homecare,"Sinagra, Susan C.",Prepared,07/01/2025,9374267,,,12/20/1963,05/14/2025,05/14/2025,07/12/2025,4752015,
+Page 18,,"Dr. Will, Christine A.",Other,Nightingale Visiting Nurses-Taunton,Homecare,"Figueiredo, Jose",Prepared,07/01/2025,9374252,,,Date of 09/06/1933 Birth:,06/03/2025,05/29/2025,07/27/2025,(MA250528093306),"D62.
+I95.9
+K57.90"
+Page 18,,"Dr. Caldas, Robert J.",POT Recert,Fairhaven HH&H,Hospice,"Rego, John",Prepared,07/01/2025,9374206,,,,,,,,

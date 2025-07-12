@@ -1,0 +1,26 @@
+# Sannidhay & Pranav's Independent Bot System Dependencies
+# ========================================================
+
+# Web Automation
+selenium>=4.0.0
+
+# HTTP Requests
+requests>=2.25.0
+
+# Azure Document Intelligence
+azure-ai-documentintelligence>=1.0.0b2
+
+# Environment Variables
+python-dotenv>=0.19.0
+
+# CSV and Data Processing
+pandas>=1.3.0
+
+# Logging and Utilities
+pathlib2>=2.3.0
+
+# Optional: For enhanced PDF processing
+PyPDF2>=2.0.0
+
+# Optional: For better date handling
+python-dateutil>=2.8.0 
