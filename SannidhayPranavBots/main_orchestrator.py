@@ -1,3 +1,24 @@
+#!/usr/bin/env python3
+"""
+Main Orchestrator for Sannidhay & Pranav's Independent Bot System
+================================================================
+
+This script runs the complete workflow:
+1. Spencer's Order Extraction Bot (Final_All_Inboxed.py)
+2. Enhanced Medical Extractor Bot (enhanced_medical_extractor.py) 
+3. Patient Creation Bot (Final_patient_bot.py)
+4. Signed Document Bot (Final_signed_bot.py)
+
+Usage:
+    python main_orchestrator.py [--step STEP_NUMBER]
+    
+    --step 1: Run only Spencer's Order Extraction
+    --step 2: Run only Enhanced Medical Extraction  
+    --step 3: Run only Patient Creation
+    --step 4: Run only Signed Document Extraction
+    --step all: Run complete workflow (default)
+"""
+
 import os
 import sys
 import argparse
@@ -47,8 +68,8 @@ class BotOrchestrator:
         """Step 1: Extract orders from Athena Inbox"""
         return self.run_script("Final_All_Inboxed.py", "Spencer's Order Extraction Bot")
     
-    def step_2_ai_extraction(self):
-        """Step 2: Extract fields using AI from the orders"""
+    def step_2_medical_extraction(self):
+        """Step 2: Extract medical fields using enhanced extractor"""
         # Find the latest Spencer orders file
         spencer_files = list(self.reports_dir.glob("Spencer_Orders_*.csv"))
         if not spencer_files:
@@ -58,11 +79,30 @@ class BotOrchestrator:
         latest_file = max(spencer_files, key=lambda f: f.stat().st_mtime)
         self.log(f"📄 Using Spencer orders file: {latest_file.name}")
         
-        return self.run_script("ai_extract_fields.py", "AI Field Extraction Bot")
+        # Run enhanced medical extractor with the latest file
+        script_path = self.base_dir / "enhanced_medical_extractor.py"
+        try:
+            result = subprocess.run([sys.executable, str(script_path), str(latest_file)], 
+                                  capture_output=True, text=True, cwd=self.base_dir)
+            
+            if result.returncode == 0:
+                self.log("✅ Enhanced Medical Extraction completed successfully")
+                if result.stdout:
+                    print(result.stdout)
+                return True
+            else:
+                self.log(f"❌ Enhanced Medical Extraction failed with exit code {result.returncode}")
+                if result.stderr:
+                    print(f"Error: {result.stderr}")
+                return False
+                
+        except Exception as e:
+            self.log(f"❌ Error running Enhanced Medical Extraction: {e}")
+            return False
     
     def step_3_patient_creation(self):
         """Step 3: Create patients from failed orders"""
-        # Check if we have AI extracted data or create failed_orders.csv
+        # Check if we have failed orders file
         inbox_dir = self.base_dir / "Inbox"
         inbox_dir.mkdir(exist_ok=True)
         
@@ -88,7 +128,7 @@ class BotOrchestrator:
         
         steps = [
             (self.step_1_spencer_orders, "Spencer's Order Extraction"),
-            (self.step_2_ai_extraction, "AI Field Extraction"),
+            (self.step_2_medical_extraction, "Enhanced Medical Extraction"),
             (self.step_3_patient_creation, "Patient Creation"),
             (self.step_4_signed_documents, "Signed Document Extraction")
         ]
@@ -124,7 +164,7 @@ def main():
     if args.step == "1":
         orchestrator.step_1_spencer_orders()
     elif args.step == "2":
-        orchestrator.step_2_ai_extraction()
+        orchestrator.step_2_medical_extraction()
     elif args.step == "3":
         orchestrator.step_3_patient_creation()
     elif args.step == "4":
